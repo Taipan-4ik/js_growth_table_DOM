@@ -5,10 +5,10 @@ const deleteRow = document.querySelector('.remove-row');
 const addCol = document.querySelector('.append-column');
 const deleteCol = document.querySelector('.remove-column');
 const tbody = document.querySelector('tbody');
-const arrayRow = [...tbody.rows];
 
 document.addEventListener('click', (ev) => {
   const targetButton = ev.target.closest('button');
+  const arrayRow = [...tbody.rows];
 
   if (!targetButton) {
     return;
