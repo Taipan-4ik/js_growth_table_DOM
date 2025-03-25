@@ -5,6 +5,7 @@ const deleteRow = document.querySelector('.remove-row');
 const addCol = document.querySelector('.append-column');
 const deleteCol = document.querySelector('.remove-column');
 const tbody = document.querySelector('tbody');
+const arrayRow = [...tbody.rows];
 
 document.addEventListener('click', (ev) => {
   const targetButton = ev.target.closest('button');
@@ -49,9 +50,7 @@ document.addEventListener('click', (ev) => {
   addRow.disabled = tbody.rows.length >= 10;
   deleteRow.disabled = tbody.rows.length <= 2;
 
-  rows.forEach((row) => {
-    addCol.disabled = row.cells.length >= 10;
-    deleteCol.disabled = row.cells.length <= 2;
-  });
+  addCol.disabled = arrayRow.every((row) => row.cells.length >= 10);
+  deleteCol.disabled = arrayRow.every((row) => row.cells.length <= 2);
 });
 // write code here
